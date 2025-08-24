@@ -7,12 +7,12 @@ const DanceBreakAction = () => {
 
   return (
     <ActionScreenLayout
-      title="Dance Break! Alle müssen 15 Sekunden tanzen!"
+      title="Dance Break! Alle müssen 10 Sekunden tanzen!"
       imageSource={require("../../assets/gifs/dancingBears.gif")}
       hideHomeButton={!finished}
     >
       {/* Hier kannst du weitere Elemente einfügen */}
-      {!finished && <CountdownTimer seconds={15} hideStopButton hideButtonIfFinished hideButtonIfFailed onFinish={() => setFinished(true)} />}
+      {!finished && <CountdownTimer seconds={10} hideStopButton hideButtonIfFinished hideButtonIfFailed onFinish={() => setFinished(true)} />}
     </ActionScreenLayout>
   );
 };

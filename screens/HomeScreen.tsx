@@ -43,6 +43,7 @@ const HomeScreen = () => {
   ).current;
 
   const startTransition = () => {
+    if(showTransition) return; // Verhindert mehrfaches Drücken
     setShowTransition(true);
     // Konfetti Animationen starten
     confettiAnims.forEach((confetti, i) => {
