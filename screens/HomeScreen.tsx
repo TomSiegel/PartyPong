@@ -194,7 +194,8 @@ const HomeScreen = () => {
               },
             ]}
           >
-            PARTY PONG!
+            PARTY
+            PONG!
           </Animated.Text>
           {/* Konfetti-Effekt */}
           <View style={styles.confettiContainer} pointerEvents="none">

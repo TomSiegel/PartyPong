@@ -8,6 +8,7 @@ export interface ActionDefinition {
 export const actions: [Href, number][] = [
   ["/(tabs)/switchSides", 1],
   ["/(tabs)/pushUps", 2],
+  ["/(tabs)/somersault", 2],
   ["/(tabs)/exYourDrink", 2],
   ["/(tabs)/noTalking", 3],
   ["/(tabs)/freeze", 3],
@@ -19,6 +20,7 @@ export const actions: [Href, number][] = [
   ["/(tabs)/animalImitation", 5],
   ["/(tabs)/bouncerThrow", 5],
   ["/(tabs)/spoonOrCupThrow", 5],
+  ["/(tabs)/giveOpponentTask", 5],
   ["/(tabs)/danceBreak", 7],
   ["/(tabs)/everyoneDrinks", 10],
   ["/(tabs)/handOnHead", 10],
@@ -34,6 +36,13 @@ export const actions: [Href, number][] = [
   ["/(tabs)/nextThrowWithWeakHand", 10],
   ["/(tabs)/nextThrowIsTrickshot", 10],
   ["/(tabs)/throwAgain", 10],
+  ["/(tabs)/teamLosesCup", 10],
+  ["/(tabs)/rhymeUntilNextThrow", 10],
+  ["/(tabs)/predictionDoubleHit", 10],
+  ["/(tabs)/showDanceMove", 10],
+  ["/(tabs)/knockTableBeforeThrow", 20],
+  ["/(tabs)/clapBeforeThrow", 20],
+  ["/(tabs)/spinBeforeThrow", 20],
 ];
 
 export function getRandomAction(): ActionDefinition {
