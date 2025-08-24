@@ -4,7 +4,7 @@
     "slug": "party-pong",
     "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/icon-rect.png",
     "scheme": "partypong",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
