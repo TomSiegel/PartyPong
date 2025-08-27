@@ -53,7 +53,7 @@ const ActionButton = ({
   const rotate = useRef(new Animated.Value(0)).current;
   const sparks = Array.from({ length: 14 }).map(() => ({
     angle: Math.random() * 2 * Math.PI,
-    distance: 70 + Math.random() * 30,
+    distance: 90 + Math.random() * 30,
     size: 10 + Math.random() * 10,
     color: SPARK_COLORS[Math.floor(Math.random() * SPARK_COLORS.length)],
     anim: new Animated.Value(0),
@@ -223,10 +223,11 @@ const styles = StyleSheet.create({
   },
   sparkContainer: {
     position: "absolute",
-    width: "100%",
-    height: "100%",
-    left: "50%",
-    top: "50%",
+    width: "150%",
+    height: "150%",
+    borderRadius: "50%",
+    left: 0,
+    top: 0,
     zIndex: 1,
   },
   buttonWrapper: {
@@ -234,7 +235,7 @@ const styles = StyleSheet.create({
     borderRadius: "50%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#dbdfeecc",
     overflow: "visible",
     zIndex: 2,
   },

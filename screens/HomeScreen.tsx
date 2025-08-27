@@ -14,8 +14,6 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ActionButton from "../components/ActionButton";
 
 const TABLE_COLOR = "#1b5e20";
-const { width, height } = Dimensions.get("window");
-const CUP_SIZE = width * 0.22;
 
 // Konfetti Farben
 const CONFETTI_COLORS = [
@@ -29,11 +27,10 @@ const CONFETTI_COLORS = [
 ];
 
 const HomeScreen = () => {
-  const CUP_SIZE = width * 0.22;
   const [showTransition, setShowTransition] = useState(false);
   const transitionAnim = useRef(new Animated.Value(0)).current;
   const insets = useSafeAreaInsets();
-  const CONFETTI_COUNT = 20 + Math.round(Math.random() * 10);
+  const CONFETTI_COUNT = 12 + Math.round(Math.random() * 5);
   // Konfetti-Animationen vorbereiten
   const confettiAnims = useRef(
     Array.from({ length: CONFETTI_COUNT }, () => ({
@@ -47,6 +44,7 @@ const HomeScreen = () => {
     if (showTransition) return; // Verhindert mehrfaches Drücken
     setShowTransition(true);
     // Konfetti Animationen starten
+    const { width, height } = Dimensions.get("window");
     confettiAnims.forEach((confetti, i) => {
       confetti.x.setValue(0);
       confetti.y.setValue(height / 2);
@@ -193,8 +191,7 @@ const HomeScreen = () => {
               },
             ]}
           >
-            PARTY
-            PONG!
+            PARTY{"\n"}PONG!
           </Animated.Text>
           {/* Konfetti-Effekt */}
           <View style={styles.confettiContainer} pointerEvents="none">
@@ -239,7 +236,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#0d2c0d",
     alignItems: "center",
     width: "100%",
-    padding: "4%"
+    padding: "4%",
   },
   table: {
     flex: 1,
@@ -275,7 +272,7 @@ const styles = StyleSheet.create({
   buttonArea: {
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: height * 0.08,
+    marginVertical: "8%",
     zIndex: 2,
   },
   partyPongTextTop: {
@@ -321,8 +318,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 0,
     top: 0,
-    width: width,
-    height: height,
+    width: "100%",
+    height: "100%",
     zIndex: 100,
   },
 });
