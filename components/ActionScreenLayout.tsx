@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     paddingHorizontal: 12,
     flex: 1,
+    maxWidth: 600,
   },
   actionText: {
     fontSize: 32,

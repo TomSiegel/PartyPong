@@ -13,9 +13,9 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ActionButton from "../components/ActionButton";
 
+const TABLE_COLOR = "#1b5e20";
 const { width, height } = Dimensions.get("window");
 const CUP_SIZE = width * 0.22;
-const TABLE_COLOR = "#1b5e20";
 
 // Konfetti Farben
 const CONFETTI_COLORS = [
@@ -29,6 +29,7 @@ const CONFETTI_COLORS = [
 ];
 
 const HomeScreen = () => {
+  const CUP_SIZE = width * 0.22;
   const [showTransition, setShowTransition] = useState(false);
   const transitionAnim = useRef(new Animated.Value(0)).current;
   const insets = useSafeAreaInsets();
@@ -43,7 +44,7 @@ const HomeScreen = () => {
   ).current;
 
   const startTransition = () => {
-    if(showTransition) return; // Verhindert mehrfaches Drücken
+    if (showTransition) return; // Verhindert mehrfaches Drücken
     setShowTransition(true);
     // Konfetti Animationen starten
     confettiAnims.forEach((confetti, i) => {
@@ -109,31 +110,32 @@ const HomeScreen = () => {
       {/* Tischfläche */}
       <View style={styles.table}>
         {/* Becher-Formation: Rot (oben) */}
-        <View style={[styles.cupRow, { top: height * 0.09 }]}>
+        <View style={[styles.cupRow, { top: "5%" }]}>
+          <Image
+            source={require("../assets/images/red_beer_pong_cup.png")}
+            style={styles.cup}
+          />
+          <Image
+            source={require("../assets/images/red_beer_pong_cup.png")}
+            style={styles.cup}
+          />
+          <Image
+            source={require("../assets/images/red_beer_pong_cup.png")}
+            style={styles.cup}
+          />
+        </View>
+
+        <View style={[styles.cupRow, { top: "15%" }]}>
+          <Image
+            source={require("../assets/images/red_beer_pong_cup.png")}
+            style={styles.cup}
+          />
           <Image
             source={require("../assets/images/red_beer_pong_cup.png")}
             style={styles.cup}
           />
         </View>
-        <View style={[styles.cupRow, { top: height * 0.09 + CUP_SIZE * 0.7 }]}>
-          <Image
-            source={require("../assets/images/red_beer_pong_cup.png")}
-            style={styles.cup}
-          />
-          <Image
-            source={require("../assets/images/red_beer_pong_cup.png")}
-            style={styles.cup}
-          />
-        </View>
-        <View style={[styles.cupRow, { top: height * 0.09 + CUP_SIZE * 1.4 }]}>
-          <Image
-            source={require("../assets/images/red_beer_pong_cup.png")}
-            style={styles.cup}
-          />
-          <Image
-            source={require("../assets/images/red_beer_pong_cup.png")}
-            style={styles.cup}
-          />
+        <View style={[styles.cupRow, { top: "25%" }]}>
           <Image
             source={require("../assets/images/red_beer_pong_cup.png")}
             style={styles.cup}
@@ -146,13 +148,13 @@ const HomeScreen = () => {
           <Text style={styles.partyPongTextBottom}>P O N G</Text>
         </View>
         {/* Becher-Formation: Blau (unten) */}
-        <View
-          style={[styles.cupRow, { bottom: height * 0.09 + CUP_SIZE * 1.4 }]}
-        >
+        <View style={[styles.cupRow, { bottom: "25%" }]}>
           <Image
             source={require("../assets/images/blue_beer_pong_cup.png")}
             style={styles.cup}
           />
+        </View>
+        <View style={[styles.cupRow, { bottom: "15%" }]}>
           <Image
             source={require("../assets/images/blue_beer_pong_cup.png")}
             style={styles.cup}
@@ -162,9 +164,7 @@ const HomeScreen = () => {
             style={styles.cup}
           />
         </View>
-        <View
-          style={[styles.cupRow, { bottom: height * 0.09 + CUP_SIZE * 0.7 }]}
-        >
+        <View style={[styles.cupRow, { bottom: "5%" }]}>
           <Image
             source={require("../assets/images/blue_beer_pong_cup.png")}
             style={styles.cup}
@@ -173,8 +173,6 @@ const HomeScreen = () => {
             source={require("../assets/images/blue_beer_pong_cup.png")}
             style={styles.cup}
           />
-        </View>
-        <View style={[styles.cupRow, { bottom: height * 0.09 }]}>
           <Image
             source={require("../assets/images/blue_beer_pong_cup.png")}
             style={styles.cup}
@@ -205,8 +203,8 @@ const HomeScreen = () => {
                 key={i}
                 style={{
                   position: "absolute",
-                  left: width / 2 - 8,
-                  top: height / 3,
+                  left: "45%",
+                  top: "33%",
                   width: 16 + Math.random() * 10,
                   height: 8 + Math.random() * 8,
                   borderRadius: 4,
@@ -239,12 +237,17 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "#0d2c0d",
+    alignItems: "center",
+    width: "100%",
+    padding: "4%"
   },
   table: {
     flex: 1,
     backgroundColor: TABLE_COLOR,
-    borderRadius: width * 0.12,
-    margin: width * 0.04,
+    borderRadius: "10%",
+    maxWidth: 600,
+    margin: "4%",
+    width: "100%",
     overflow: "hidden",
     justifyContent: "center",
     alignItems: "center",
@@ -264,14 +267,10 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   cup: {
-    width: CUP_SIZE,
-    height: CUP_SIZE * 1.05,
+    width: "20%",
     marginHorizontal: 8,
+    aspectRatio: 1,
     resizeMode: "contain",
-    shadowColor: "#000",
-    shadowOpacity: 0.18,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 4 },
   },
   buttonArea: {
     alignItems: "center",
@@ -307,6 +306,7 @@ const styles = StyleSheet.create({
     zIndex: 99,
   },
   transitionText: {
+    wordWrap: "break-word",
     fontSize: 54,
     fontWeight: "bold",
     color: "#ffd600",

@@ -1,17 +1,24 @@
 import { Image } from "expo-image";
 import React, { useEffect, useRef } from "react";
 import {
-    Animated,
-    Dimensions,
-    Easing,
-    GestureResponderEvent,
-    StyleSheet,
-    TouchableOpacity,
-    View
+  Animated,
+  Easing,
+  GestureResponderEvent,
+  StyleSheet,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 // Hilfsfunktion für zufällige Funken
-const Spark = ({ size, color, style }: { size: number; color: string; style: any }) => (
+const Spark = ({
+  size,
+  color,
+  style,
+}: {
+  size: number;
+  color: string;
+  style: any;
+}) => (
   <Animated.View
     style={[
       {
@@ -28,10 +35,14 @@ const Spark = ({ size, color, style }: { size: number; color: string; style: any
 );
 
 const SPARK_COLORS = [
-  "#fff176", "#ff8a65", "#ba68c8", "#4fc3f7", "#ff5252", "#ffd600", "#00e676"
+  "#fff176",
+  "#ff8a65",
+  "#ba68c8",
+  "#4fc3f7",
+  "#ff5252",
+  "#ffd600",
+  "#00e676",
 ];
-
-const { width, height } = Dimensions.get('window');
 
 const ActionButton = ({
   onPress,
@@ -165,8 +176,17 @@ const ActionButton = ({
           },
         ]}
       >
-        <TouchableOpacity style={styles.button} onPress={onPress} activeOpacity={0.85}>
-          <Image style={styles.image} source={require("../assets/images/buttonV1.png")} />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={onPress}
+          activeOpacity={0.85}
+        >
+          <Image
+            style={styles.image}
+            source={require("../assets/images/buttonV1.png")}
+            contentFit="contain"
+            resizeMode="contain"
+          />
         </TouchableOpacity>
         {/* Farbige Aura */}
         <Animated.View
@@ -177,10 +197,14 @@ const ActionButton = ({
                 inputRange: [1, 1.15],
                 outputRange: [0.4, 0.7],
               }),
-              transform: [{ scale: pulse.interpolate({
-                inputRange: [1, 1.15],
-                outputRange: [1.1, 1.25],
-              }) }],
+              transform: [
+                {
+                  scale: pulse.interpolate({
+                    inputRange: [1, 1.15],
+                    outputRange: [1.1, 1.25],
+                  }),
+                },
+              ],
             },
           ]}
           pointerEvents="none"
@@ -190,28 +214,24 @@ const ActionButton = ({
   );
 };
 
-const BUTTON_SIZE = width * 0.4;
-
 const styles = StyleSheet.create({
   center: {
     alignItems: "center",
     justifyContent: "center",
-    width: BUTTON_SIZE * 2,
-    height: BUTTON_SIZE * 2,
+    width: "100%",
     position: "relative",
   },
   sparkContainer: {
     position: "absolute",
-    width: BUTTON_SIZE,
-    height: BUTTON_SIZE,
-    left: BUTTON_SIZE / 2,
-    top: BUTTON_SIZE / 2,
+    width: "100%",
+    height: "100%",
+    left: "50%",
+    top: "50%",
     zIndex: 1,
   },
   buttonWrapper: {
-    width: BUTTON_SIZE,
-    height: BUTTON_SIZE,
-    borderRadius: BUTTON_SIZE / 2,
+    width: "66%",
+    borderRadius: "50%",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#fff",
@@ -219,9 +239,8 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   button: {
-    width: BUTTON_SIZE,
-    height: BUTTON_SIZE,
-    borderRadius: BUTTON_SIZE / 2,
+    width: "100%",
+    borderRadius: "50%",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent",
@@ -229,16 +248,15 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: "100%",
-    borderRadius: BUTTON_SIZE / 2,
+    aspectRatio: 1,
   },
   aura: {
     position: "absolute",
-    width: BUTTON_SIZE * 1.4,
-    height: BUTTON_SIZE * 1.4,
-    borderRadius: BUTTON_SIZE * 0.7,
-    left: -(BUTTON_SIZE * 0.2),
-    top: -(BUTTON_SIZE * 0.2),
+    width: "140%",
+    height: "140%",
+    borderRadius: "50%",
+    left: "-20%",
+    top: "-20%",
     backgroundColor: "rgba(255, 214, 0, 0.25)",
     zIndex: 0,
     borderWidth: 2,
