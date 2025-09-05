@@ -6,7 +6,8 @@ export interface ActionDefinition {
 }
 
 export const actions: [Href, number][] = [
-  ["/(tabs)/switchSides", 1],
+  ["/(tabs)/switchSides", 2],
+  ["/(tabs)/leoBikini", 2],
   ["/(tabs)/pushUps", 2],
   ["/(tabs)/somersault", 2],
   ["/(tabs)/exYourDrink", 2],

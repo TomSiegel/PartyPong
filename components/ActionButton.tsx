@@ -83,12 +83,14 @@ const ActionButton = ({
   // Rotierende Animation für Funken-Kreis
   useEffect(() => {
     Animated.loop(
-      Animated.timing(rotate, {
-        toValue: 1,
-        duration: 4000,
-        useNativeDriver: true,
-        easing: Easing.linear,
-      })
+      Animated.sequence([
+        Animated.timing(rotate, {
+          toValue: 1,
+          duration: 4000,
+          useNativeDriver: true,
+          easing: Easing.linear,
+        }),
+      ])
     ).start();
   }, []);
 
@@ -226,8 +228,8 @@ const styles = StyleSheet.create({
     width: "150%",
     height: "150%",
     borderRadius: "50%",
-    left: 0,
-    top: 0,
+    left: "-25%",
+    top: "-25%",
     zIndex: 1,
   },
   buttonWrapper: {
